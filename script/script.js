@@ -28,7 +28,7 @@ async function addLeadToBitrix24(name, email, phone, course, soursevalue) {
     // console.log(existingLeadId);
     if (existingLeadId) {
         alert('errrr')
-        window.location.href = './registered.html'
+        window.location.href = '../registered.html'
 
         return;
     } else {
@@ -64,7 +64,7 @@ async function addLeadToBitrix24(name, email, phone, course, soursevalue) {
 
 
                 $('.preloader').addClass('preloader-deactivate');
-                window.location.href = './end.html'
+                window.location.href = '../end.html'
 
 
 
