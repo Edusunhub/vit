@@ -28,7 +28,7 @@ async function addLeadToBitrix24(name, email, phone, course, soursevalue) {
     // console.log(existingLeadId);
     if (existingLeadId) {
         alert('errrr')
-        window.location.href = './registered.php'
+        window.location.href = './registered.html'
 
         return;
     } else {
@@ -64,7 +64,7 @@ async function addLeadToBitrix24(name, email, phone, course, soursevalue) {
 
 
                 $('.preloader').addClass('preloader-deactivate');
-                window.location.href = './end.php'
+                window.location.href = './end.html'
 
 
 
@@ -76,46 +76,6 @@ async function addLeadToBitrix24(name, email, phone, course, soursevalue) {
     }
 }
 
-async function callApi(name, email, phone, course) {
-
-
-    const soursevalue = "UC_M6FZWA";
-    const campaignName = urlParams.get('utm_campaign');
-    // Data to send to the API
-    const data = {
-        action: 'insertData',
-        name: name,
-        email: email,
-        mobile: phone,
-        course: course,
-        source: soursevalue,
-        campaign_name: campaignName,
-    };
-    try {
-        // Make the POST request to the API
-        const response = await fetch('https://iop.liba.edu/api/leadadd.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-        if (!response.ok) {
-            window.location.href = 'http://localhost/registered.php/'
-
-
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-
-        addLeadToBitrix24(name, email, phone, course, soursevalue)
-        // console.log('Success:', result);
-    } catch (error) {
-        console.error('Fetch error:', error);
-    } finally {
-
-    }
-}
 
 function validateForm() {
 
